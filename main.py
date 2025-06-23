@@ -52,6 +52,13 @@ def update_user(i):
     entry_liczba_postow.delete(0, END)
     entry_imie.focus()
 
+def show_user_details()
+    i=listbox_lista_obiektow.index(ACTIVE)
+    label_imie_szczegoly_obiektu_wartosc.config(text=users[i]['name'])
+    label_miejscowosc_szczegoly_obiektu_wartosc.config(text=users[i]['location'])
+    label_posty_szczegoly_obiektu_wartosc.config(text=users[i]['posts'])
+
+
 
 
 root = Tk()
