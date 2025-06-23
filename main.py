@@ -1,16 +1,23 @@
 from tkinter import *
 
-
-
+import tkintermapview
 
 root = Tk()
 
+
 root.title('map_book_MB')
-root.geometry('1200x700')
+root.geometry('1200x800')
 
 ramka_lista_obiektów=Frame(root)
 ramka_formularz=Frame(root)
 ramka_szczegoly_obiektow=Frame(root)
+ramka_mapa=Frame(root)
+
+ramka_lista_obiektow.grid(row=0, column=0, padx=50)
+ramka_formularz.grid(row=0, column=1)
+ramka_szczegoly_obiektow.grid(row=1, column=0, columnspan=2)
+ramka_mapa.grid(row=2, column=0, columnspan=2)
+
 
 # ramka_lista_obiektow
 
