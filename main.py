@@ -1,5 +1,5 @@
 from utils.model import users
-from utils.controller import get_user_info, add_user
+from utils.controller import get_user_info, add_user, remove_user
 
 
 def main():
@@ -7,6 +7,7 @@ def main():
     print('0 - zakończ program')
     print('1 - wyświetl co u znajomych')
     print('2 - dodaj użytkownika')
+    print('3 - usuń użytkownika')
     print('===========================')
 
     while True:
@@ -14,6 +15,7 @@ def main():
         if choice == '0': break
         if choice == '1': get_user_info(users)
         if choice == '2': add_user(users)
+        if choice == '3': remove_user(users)
 
 
 
