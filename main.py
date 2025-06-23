@@ -1,5 +1,5 @@
 from utils.model import users
-from utils.controller import get_user_info, add_user, remove_user, update_user
+from utils.controller import get_user_info, add_user, remove_user, update_user, get_mapa
 
 
 def main():
@@ -9,6 +9,7 @@ def main():
     print('2 - dodaj użytkownika')
     print('3 - usuń użytkownika')
     print('4 - zaktualizuj użytkownika')
+    print('5 - przygotuj mapę użytkowników')
     print('===========================')
 
     while True:
@@ -18,7 +19,7 @@ def main():
         if choice == '2': add_user(users)
         if choice == '3': remove_user(users)
         if choice == '4': update_user(users)
-
+        if choice == '5': get_mapa(users)
 
 
 if __name__ == '__main__':
