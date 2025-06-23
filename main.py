@@ -1,6 +1,58 @@
+from cProfile import label
 from tkinter import *
 
 import tkintermapview
+from geocoder import location
+
+users:list = []
+
+def add_user():
+    name=entry_imie.get()
+    location=entry_miejscowosc()
+    post=entry_liczba_postow.get()
+    users.append({'name':name,'location':location,'posts':post})
+    print(users)
+    show_users()
+
+    entry_imie.delete(0, END)
+    entry_miejscowosc.delete(0, END)
+    entry_liczba_postow.delete(0, END)
+    entry_imie.focus()
+
+def show_users():
+    listbox_lista_obiektow.delete(0, END)
+    for idx, user in enumerate(users):
+        listbox_lista_obiektow.insert(idx, f'{idx+1}{user['name']} {user["location"]} {user["posts"]}')
+
+def remove_user():
+    listbox_lista_obiektow.index(ACTIVE)
+    print(i)
+    users.pop(i)
+    show_users()
+
+def edit_user():
+    i=listbox_lista_obiektow.delete(ACTIVE)
+    print(users[i])
+    entry_imie.insert(0,users[i]['name'])
+    entry_miejscowosc.insert(0,users[i]['location'])
+    entry_liczba_postow.insert(0,users[i]['posts'])
+    button_dodaj_obiekt.config(text='Zapisz', command=lambda: update_user(i))
+
+def update_user(i):
+    name=entry_imie.get()
+    location=entry_miejscowosc.get()
+    posts=entry_liczba_postow.get()
+    users[i]['name']=name
+    users[i]['location']=location
+    users[i]['posts']=posts
+    show_users()
+    button_dodaj_obiekt.config(text='Dodaj', command=add_user)
+    entry_imie.delete(0, END)
+    entry_miejscowosc.delete(0, END)
+    entry_liczba_postow.delete(0, END)
+    entry_imie.focus()
+
+
 
 root = Tk()
 
